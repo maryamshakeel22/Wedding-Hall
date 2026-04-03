@@ -1,26 +1,655 @@
 @import "tailwindcss";
 
+/* ============================================
+   PREMIUM WEDDING HALL COLOR SYSTEM
+   Elegant, luxurious palette for light & dark modes
+   ============================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* === LIGHT MODE - Warm, Elegant, Premium === */
+  
+  /* Core neutrals - Soft warm whites */
+  --background: #fafaf9;           /* Warm white - softer than pure white */
+  --background-secondary: #ffffff; /* Pure white for cards */
+  --foreground: #1c1917;           /* Warm charcoal - softer than black */
+  --foreground-secondary: #44403c; /* Secondary text */
+  
+  /* Gold palette - Luxury accent */
+  --gold: #c4a747;                 /* Primary gold - rich, not too yellow */
+  --gold-light: #e8d68a;           /* Light gold for gradients */
+  --gold-dark: #9a8026;            /* Dark gold for depth */
+  --gold-pale: #fef3c7;            /* Very pale gold for backgrounds */
+  
+  /* Pink/Rose palette - Romantic accents */
+  --pink-soft: #fdf2f2;            /* Soft blush background */
+  --pink-rose: #fda4a4;            /* Rose accent */
+  --pink-dusty: #d4a5a5;           /* Dusty rose for elegance */
+  
+  /* Cream/Warm tones */
+  --cream: #fffef9;                /* Warm cream */
+  --champagne: #f7f1e3;            /* Champagne accent */
+  
+  /* Card & Surface styles */
+  --card-bg: #ffffff;
+  --card-bg-hover: #fafaf9;
+  --card-border: rgba(196, 167, 71, 0.15);
+  --card-shadow: rgba(196, 167, 71, 0.08);
+  
+  /* Text hierarchy */
+  --text-primary: #1c1917;
+  --text-secondary: #57534e;
+  --text-tertiary: #78716c;
+  --text-muted: #a8a29e;
+  --text-inverse: #ffffff;
+  
+  /* Input fields */
+  --input-bg: #fafaf9;
+  --input-border: #e7e5e4;
+  --input-border-focus: #c4a747;
+  
+  /* Navigation */
+  --nav-bg: rgba(255, 255, 255, 0.92);
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.96);
+  --nav-border: rgba(196, 167, 71, 0.1);
+  
+  /* Interactive states */
+  --hover-bg: rgba(245, 243, 241, 1);
+  --active-bg: rgba(196, 167, 71, 0.08);
+  --selection-bg: rgba(196, 167, 71, 0.15);
+  
+  /* Gradients */
+  --gradient-gold: linear-gradient(135deg, #c4a747 0%, #e8d68a 50%, #c4a747 100%);
+  --gradient-gold-subtle: linear-gradient(135deg, #c4a747 0%, #d4b95a 100%);
+  --gradient-rose: linear-gradient(135deg, #fdf2f2 0%, #fef3c7 100%);
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.1);
+  --shadow-gold: 0 8px 32px rgba(196, 167, 71, 0.2);
 }
+
+/* Scroll padding */
+html {
+  scroll-padding-top: 100px;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   DARK MODE - Sophisticated, Rich, Luxurious
+   ============================================ */
+
+.dark {
+  /* Core neutrals - Deep, rich blues/grays */
+  --background: #0c0a09;           /* Warm black - softer than pure black */
+  --background-secondary: #181614; /* Slightly lighter for contrast */
+  --foreground: #f5f5f4;           /* Warm white text */
+  --foreground-secondary: #d6d3d1; /* Secondary text */
+  
+  /* Gold palette - Same gold, pops beautifully on dark */
+  --gold: #d4b95a;                 /* Slightly brighter for dark mode */
+  --gold-light: #f4e59a;           /* Lighter for contrast */
+  --gold-dark: #b89628;            /* Dark gold */
+  --gold-pale: rgba(212, 185, 90, 0.1); /* Pale gold overlay */
+  
+  /* Pink/Rose palette - Muted for dark mode */
+  --pink-soft: #1f1a1a;            /* Dark blush */
+  --pink-rose: #be8a8a;            /* Muted rose */
+  --pink-dusty: #9a7a7a;           /* Dusty rose */
+  
+  /* Cream/Warm tones - Adapted for dark */
+  --cream: #1c1917;                /* Warm dark */
+  --champagne: #2a2622;            /* Dark champagne */
+  
+  /* Card & Surface styles */
+  --card-bg: #1c1917;
+  --card-bg-hover: #24211f;
+  --card-border: rgba(212, 185, 90, 0.2);
+  --card-shadow: rgba(0, 0, 0, 0.4);
+  
+  /* Text hierarchy */
+  --text-primary: #f5f5f4;
+  --text-secondary: #d6d3d1;
+  --text-tertiary: #a8a29e;
+  --text-muted: #78716c;
+  --text-inverse: #1c1917;
+  
+  /* Input fields */
+  --input-bg: #24211f;
+  --input-border: #44403c;
+  --input-border-focus: #d4b95a;
+  
+  /* Navigation */
+  --nav-bg: rgba(12, 10, 9, 0.92);
+  --nav-bg-scrolled: rgba(12, 10, 9, 0.96);
+  --nav-border: rgba(212, 185, 90, 0.1);
+  
+  /* Interactive states */
+  --hover-bg: rgba(36, 33, 31, 1);
+  --active-bg: rgba(212, 185, 90, 0.12);
+  --selection-bg: rgba(212, 185, 90, 0.2);
+  
+  /* Gradients */
+  --gradient-gold: linear-gradient(135deg, #d4b95a 0%, #f4e59a 50%, #d4b95a 100%);
+  --gradient-gold-subtle: linear-gradient(135deg, #d4b95a 0%, #e8d68a 100%);
+  --gradient-rose: linear-gradient(135deg, #1f1a1a 0%, #2a2622 100%);
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 8px 32px rgba(212, 185, 90, 0.25);
+}
+
+/* ============================================
+   TAILWIND THEME MAPPING
+   ============================================ */
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
   --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-gold-pale: var(--gold-pale);
+  --color-pink-soft: var(--pink-soft);
+  --color-pink-rose: var(--pink-rose);
+  --color-pink-dusty: var(--pink-dusty);
+  --color-cream: var(--cream);
+  --color-champagne: var(--champagne);
+  --color-card-bg: var(--card-bg);
+  --color-card-bg-hover: var(--card-bg-hover);
+  --color-card-border: var(--card-border);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-muted: var(--text-muted);
+  --color-input-bg: var(--input-bg);
+  --color-input-border: var(--input-border);
+  --color-nav-bg: var(--nav-bg);
+  --color-nav-border: var(--nav-border);
+  --color-hover-bg: var(--hover-bg);
+  --color-active-bg: var(--active-bg);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+* {
+  border-color: var(--card-border);
 }
+
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--gold) 0%, var(--gold-dark) 100%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dark);
+}
+
+/* ============================================
+   SMOOTH SCROLLING
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   ANIMATION UTILITIES
+   ============================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-gold {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(196, 167, 71, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(196, 167, 71, 0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s ease-in-out infinite;
+}
+
+/* ============================================
+   GRADIENT TEXT - PREMIUM GOLD
+   ============================================ */
+
+.gradient-text {
+  background: var(--gradient-gold);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+.gradient-text-subtle {
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   GLASS MORPHISM - ELEGANT BLUR
+   ============================================ */
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass {
+  background: rgba(28, 25, 23, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(196, 167, 71, 0.2);
+}
+
+.dark .glass-strong {
+  background: rgba(28, 25, 23, 0.85);
+  border: 1px solid rgba(212, 185, 90, 0.2);
+}
+
+/* ============================================
+   CARD STYLES - PREMIUM ELEVATION
+   ============================================ */
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px var(--card-shadow);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl), 0 0 40px var(--card-shadow);
+  border-color: rgba(196, 167, 71, 0.3);
+}
+
+.card-elevated {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-elevated:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl), var(--shadow-gold);
+}
+
+/* ============================================
+   BUTTON STYLES - LUXURIOUS INTERACTIVE
+   ============================================ */
+
+.btn-primary {
+  background: var(--gradient-gold-subtle);
+  color: var(--text-inverse);
+  font-weight: 600;
+  padding: 0.875rem 2rem;
+  border-radius: 9999px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(196, 167, 71, 0.3);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(196, 167, 71, 0.4);
+  filter: brightness(1.05);
+}
+
+.btn-primary:active {
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--gold);
+  font-weight: 600;
+  padding: 0.875rem 2rem;
+  border-radius: 9999px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-secondary:hover {
+  background: var(--gold);
+  color: var(--text-inverse);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(196, 167, 71, 0.3);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  font-weight: 500;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-ghost:hover {
+  background: var(--hover-bg);
+  color: var(--text-primary);
+}
+
+/* ============================================
+   INPUT STYLES - REFINED FORMS
+   ============================================ */
+
+.input-field {
+  background: var(--input-bg);
+  border: 1.5px solid var(--input-border);
+  color: var(--text-primary);
+  border-radius: 1rem;
+  padding: 0.875rem 1.25rem;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.input-field:hover {
+  border-color: var(--text-muted);
+}
+
+.input-field:focus {
+  border-color: var(--gold);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(196, 167, 71, 0.1);
+  background: var(--card-bg);
+}
+
+.input-field::placeholder {
+  color: var(--text-muted);
+}
+
+/* ============================================
+   TEXT HIERARCHY UTILITIES
+   ============================================ */
+
+.text-display {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-heading {
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.text-subheading {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.text-body {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.text-caption {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+}
+
+/* ============================================
+   SECTION STYLES
+   ============================================ */
+
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+/* ============================================
+   BADGE STYLES
+   ============================================ */
+
+.badge-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background: rgba(196, 167, 71, 0.1);
+  color: var(--gold-dark);
+  border: 1px solid rgba(196, 167, 71, 0.2);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.dark .badge-gold {
+  background: rgba(212, 185, 90, 0.15);
+  color: var(--gold-light);
+  border-color: rgba(212, 185, 90, 0.3);
+}
+
+.badge-soft {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.25rem;
+  background: var(--pink-soft);
+  color: var(--text-secondary);
+  border: 1px solid var(--card-border);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+}
+
+/* ============================================
+   SELECTION & FOCUS
+   ============================================ */
+
+::selection {
+  background: var(--gold);
+  color: var(--text-inverse);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* ============================================
+   DAYPICKER CUSTOM STYLES
+   ============================================ */
+
+.rdp {
+  --rdp-cell-size: 44px;
+  --rdp-accent-color: var(--gold);
+  --rdp-background-color: var(--pink-soft);
+  --rdp-selected-color: var(--gold);
+  margin: 0;
+  font-family: var(--font-sans);
+}
+
+.rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+  background-color: var(--pink-rose);
+  color: var(--text-inverse);
+}
+
+.rdp-day_selected {
+  background-color: var(--gold) !important;
+  color: white !important;
+  font-weight: 600;
+  border-radius: 0.75rem;
+}
+
+.rdp-day_selected:focus-visible {
+  box-shadow: 0 0 0 3px rgba(196, 167, 71, 0.4);
+}
+
+.rdp {
+  background: var(--card-bg) !important;
+  border-radius: 1.5rem;
+  border: 1px solid var(--card-border);
+  padding: 1.5rem;
+}
+
+.rdp-caption_label,
+.rdp-button {
+  color: var(--text-primary) !important;
+}
+
+.rdp-head_cell {
+  color: var(--text-muted) !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   DIVIDER STYLES
+   ============================================ */
+
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--card-border) 50%,
+    transparent 100%
+  );
+  margin: 2rem 0;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.break-words {
+  overflow-wrap: break-word;
+}
+
+/* Smooth image loading */
+img {
+  image-rendering: -webkit-optimize-contrast;
 }
